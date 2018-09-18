@@ -19,7 +19,7 @@ while meny != 4:
     elif meny == 2:
         try:
             uttag = int(input("Hur mycket vill du ta ut? "))
-            print("du tog ut ", str(uttag))
+            print("du tog ut", str(uttag))
             saldo = saldo - uttag
         except:
             print("du måste välja en siffra")
