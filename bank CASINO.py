@@ -5,6 +5,7 @@ print("3. Sätta in")
 print("4. Saldo")
 print("5. Hejdå")
 
+
 saldo = 0
 meny = 0
 while meny != 5:
@@ -13,17 +14,23 @@ while meny != 5:
     except:
         print("du måste välja en siffra")
     if meny == 1:
-            tal = int(input("Välkommen till casinot! gissa på ett tal mellan 1 - 2. Rätt = du dubblar dina pengar, Fel = Du förlorar hälften av dina pengar "))
+        try:
+            insats = int(input("Välkommen till casinot!, hur mycket vill du lägga in? "))
+            saldo = saldo - insats
+            tal = int(input(" Gissa på ett tal mellan 1 - 2. Rätt = du dubblar din insats, Fel = Du förlorar hälften av din insats "))
             import random
             x = random.randint(1,2)
             if tal == x:
                 print("rätt nummer var", x)
-                saldo = saldo * 2
+                insats = insats * 2
                 print("du vann")
+                saldo = saldo + insats
             else:
                 print("rätt nummer var", x)
-                saldo = saldo / 2
+                insats = 0
                 print("du förlora")
+        except:
+            print("du måste välja en siffra")
     elif meny == 2:
         try:
             uttag = int(input("Hur mycket vill du ta ut? "))
